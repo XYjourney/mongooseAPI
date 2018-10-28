@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^5.3.6"
+    "mongoose": "^5.2.8"
+  },
+  "devDependencies": {
+    "mockjs": "^1.0.1-beta3"
   }
 }
