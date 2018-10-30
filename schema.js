@@ -16,7 +16,7 @@ const personSchema = new Schema({
   age: {
     type: Number,
     // 字段级别索引
-    index: true 
+    index: true,
   },
   gender: {
     type: String,
@@ -88,7 +88,10 @@ const storySchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Person'
   },
-  title: String,
+  t: {
+    type: String,
+    alias: 'title'
+  },
   fans: [{
     type: Schema.Types.ObjectId,
     ref: 'Person'
