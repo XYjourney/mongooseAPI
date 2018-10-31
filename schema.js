@@ -81,7 +81,7 @@ personSchema.statics.findOldPeople = function (cb) {
   return this.find({ age: { $gt: 18 }}, cb)
 }
 // 建立复合索引，注意符合索引只能用如下方法
-// personSchema.index({name: 1, age: -1}) 
+personSchema.index({name: 1, age: -1}) 
 
 const storySchema = new Schema({
   author: {
