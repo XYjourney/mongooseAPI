@@ -5,10 +5,10 @@ const Schema = mongoose.Schema
  * （1）定义表的字段及索引，10种数据类型
  * （2）定义虚拟字段（类似vue的计算属性）
  * （3）定义字段别名，好处在于节省空间和带宽
- * （2）定义model实例（文档）的方法
- * （3）定义model静态方法
- * （4）定义查询对象的实例方法
- * （5）丰富的配置项，影响数据库性能、安全等多方面
+ * （4）定义model实例（文档）的方法
+ * （5）定义model静态方法
+ * （6）定义查询对象的实例方法
+ * （7）丰富的配置项，影响数据库性能、安全等多方面
  * */
 
 const personSchema = new Schema({
@@ -45,7 +45,8 @@ const personSchema = new Schema({
       required: [true, '手机必须填']
     }
   } 
- }, {
+ }, 
+ {
   autoIndex: true, // 默认为true, 会影响数据库性能
   autoCreate: true, // 默认为false, 自动调用mongodbapi创建collection
   bufferCommands: false,
@@ -81,7 +82,7 @@ personSchema.statics.findOldPeople = function (cb) {
   return this.find({ age: { $gt: 18 }}, cb)
 }
 // 建立复合索引，注意符合索引只能用如下方法
-// personSchema.index({name: 1, age: -1}) 
+personSchema.index({name: 1, age: -1}) 
 
 const storySchema = new Schema({
   author: {
